@@ -3,7 +3,7 @@
 namespace Core\Libs\Images;
 /*
  * Simple Images resize
- *
+ * https://github.com/nosorrow/php-image-gd
  * Usage:
  *
  * $image = new Images();

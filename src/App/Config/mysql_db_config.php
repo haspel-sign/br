@@ -3,7 +3,7 @@
 return [
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'br_booking',
+    'database'  => 'br_booking', // вашата база данни
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',

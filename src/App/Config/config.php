@@ -7,7 +7,7 @@ $config = [
  * Непрепоръчително : Ако е празен стринг ще се опита
  *                    да  вземе хоста от глобалните променливи.
  */
-    'base_url' => 'http://booking-room.dev/',
+    'base_url' => '',
     /*
      * Ако не наличен $_SERVER'REQUEST_SCHEME'
      *
@@ -29,7 +29,7 @@ $config = [
      *  development
      *  production
      */
-    'environment' => 'whoops',
+    'environment' => 'production',
     /*
      * true -> записва в лог файл когато 'environment' => 'production'
      */
