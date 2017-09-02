@@ -34,8 +34,8 @@
  * that you don't want to keep in memory)
  */
 class gettext_reader {
-  //public:
-   var $error = 0; // public variable that holds error code (0 if no error)
+  //booking:
+   var $error = 0; // booking variable that holds error code (0 if no error)
 
    //private:
   var $BYTEORDER = 0;        // 0: low endian, 1: big endian
@@ -244,7 +244,7 @@ class gettext_reader {
   /**
    * Translates a string
    *
-   * @access public
+   * @access booking
    * @param string string to be translated
    * @return string translated string (or original, if not found)
    */
@@ -370,7 +370,7 @@ class gettext_reader {
   /**
    * Plural version of gettext
    *
-   * @access public
+   * @access booking
    * @param string single
    * @param string plural
    * @param string number

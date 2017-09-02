@@ -19,7 +19,7 @@ class $file extends Model
     /**
      * BookingModel constructor.
      */
-    public function __construct()
+    booking function __construct()
     {
         parent::__construct(['table'=>'']);
     }

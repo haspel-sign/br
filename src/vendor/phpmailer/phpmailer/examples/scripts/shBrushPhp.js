@@ -43,7 +43,7 @@
 		var keywords =	'abstract and array as break case catch cfunction class clone const continue declare default die do ' +
 						'else elseif enddeclare endfor endforeach endif endswitch endwhile extends final for foreach ' +
 						'function global goto if implements include include_once interface instanceof insteadof namespace new ' +
-						'old_function or private protected public return require require_once static switch ' +
+						'old_function or private protected booking return require require_once static switch ' +
 						'trait throw try use var while xor ';
 		
 		var constants	= '__FILE__ __LINE__ __METHOD__ __FUNCTION__ __CLASS__';

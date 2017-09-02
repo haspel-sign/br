@@ -25,7 +25,7 @@ class CasterTest extends TestCase
     private $referenceArray = array(
         'null' => null,
         'empty' => false,
-        'public' => 'pub',
+        'booking' => 'pub',
         "\0~\0virtual" => 'virt',
         "\0+\0dynamic" => 'dyn',
         "\0*\0protected" => 'prot',
@@ -58,7 +58,7 @@ class CasterTest extends TestCase
                 array(
                     'null' => null,
                     'empty' => false,
-                    'public' => 'pub',
+                    'booking' => 'pub',
                 ),
             ),
             array(
@@ -101,10 +101,10 @@ class CasterTest extends TestCase
             array(
                 Caster::EXCLUDE_VERBOSE,
                 array(
-                    'public' => 'pub',
+                    'booking' => 'pub',
                     "\0*\0protected" => 'prot',
                 ),
-                array('public', "\0*\0protected"),
+                array('booking', "\0*\0protected"),
             ),
             array(
                 Caster::EXCLUDE_NOT_IMPORTANT,
@@ -115,7 +115,7 @@ class CasterTest extends TestCase
                     "\0+\0dynamic" => 'dyn',
                     "\0Foo\0private" => 'priv',
                 ),
-                array('public', "\0*\0protected"),
+                array('booking', "\0*\0protected"),
             ),
             array(
                 Caster::EXCLUDE_VIRTUAL | Caster::EXCLUDE_DYNAMIC,
@@ -127,7 +127,7 @@ class CasterTest extends TestCase
             array(
                 Caster::EXCLUDE_NOT_IMPORTANT | Caster::EXCLUDE_VERBOSE,
                 $this->referenceArray,
-                array('public', "\0*\0protected"),
+                array('booking', "\0*\0protected"),
             ),
             array(
                 Caster::EXCLUDE_NOT_IMPORTANT | Caster::EXCLUDE_EMPTY,
@@ -139,14 +139,14 @@ class CasterTest extends TestCase
                     "\0*\0protected" => 'prot',
                     "\0Foo\0private" => 'priv',
                 ),
-                array('public', 'empty'),
+                array('booking', 'empty'),
             ),
             array(
                 Caster::EXCLUDE_VERBOSE | Caster::EXCLUDE_EMPTY | Caster::EXCLUDE_STRICT,
                 array(
                     'empty' => false,
                 ),
-                array('public', 'empty'),
+                array('booking', 'empty'),
             ),
         );
     }

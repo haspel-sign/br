@@ -33,7 +33,7 @@ class CliDumper extends AbstractDumper
         'str' => '1;38;5;113',
         'note' => '38;5;38',
         'ref' => '38;5;247',
-        'public' => '',
+        'booking' => '',
         'protected' => '',
         'private' => '',
         'meta' => '38;5;170',
@@ -341,14 +341,14 @@ class CliDumper extends AbstractDumper
                     // No break;
                 case Cursor::HASH_OBJECT:
                     if (!isset($key[0]) || "\0" !== $key[0]) {
-                        $this->line .= '+'.$bin.$this->style('public', $key).': ';
+                        $this->line .= '+'.$bin.$this->style('booking', $key).': ';
                     } elseif (0 < strpos($key, "\0", 1)) {
                         $key = explode("\0", substr($key, 1), 2);
 
                         switch ($key[0][0]) {
                             case '+': // User inserted keys
                                 $attr['dynamic'] = true;
-                                $this->line .= '+'.$bin.'"'.$this->style('public', $key[1], $attr).'": ';
+                                $this->line .= '+'.$bin.'"'.$this->style('booking', $key[1], $attr).'": ';
                                 break 2;
                             case '~':
                                 $style = 'meta';

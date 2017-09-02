@@ -138,7 +138,7 @@ class TemplateHelper
                 'str' => 'color:#BCD42A',
                 'note' => 'color:#ef7c61',
                 'ref' => 'color:#A0A0A0',
-                'public' => 'color:#FFFFFF',
+                'booking' => 'color:#FFFFFF',
                 'protected' => 'color:#FFFFFF',
                 'private' => 'color:#FFFFFF',
                 'meta' => 'color:#FFFFFF',

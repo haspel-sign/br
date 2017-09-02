@@ -37,7 +37,7 @@ class HtmlDumper extends CliDumper
         'str' => 'font-weight:bold; color:#56DB3A',
         'note' => 'color:#1299DA',
         'ref' => 'color:#A0A0A0',
-        'public' => 'color:#FFFFFF',
+        'booking' => 'color:#FFFFFF',
         'protected' => 'color:#FFFFFF',
         'private' => 'color:#FFFFFF',
         'meta' => 'color:#B729D9',
@@ -253,7 +253,7 @@ function highlight(root, activeNode, nodes) {
 }
 
 function resetHighlightedNodes(root) {
-    Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) {
+    Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-booking, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) {
         strNode.className = strNode.className.replace(/\b sf-dump-highlight\b/, '');
         strNode.className = strNode.className.replace(/\b sf-dump-highlight-active\b/, '');
     });
@@ -507,7 +507,7 @@ return function (root, x) {
                     return;
                 }
 
-                var xpathResult = doc.evaluate('//pre[@id="' + root.id + '"]//span[@class="sf-dump-str" or @class="sf-dump-key" or @class="sf-dump-public" or @class="sf-dump-protected" or @class="sf-dump-private"][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+                var xpathResult = doc.evaluate('//pre[@id="' + root.id + '"]//span[@class="sf-dump-str" or @class="sf-dump-key" or @class="sf-dump-booking" or @class="sf-dump-protected" or @class="sf-dump-private"][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
 
                 while (node = xpathResult.iterateNext()) state.nodes.push(node);
                 
@@ -637,7 +637,7 @@ pre.sf-dump code {
 .sf-dump-str-expand .sf-dump-str-expand {
     display: none;
 }
-.sf-dump-public.sf-dump-highlight,
+.sf-dump-booking.sf-dump-highlight,
 .sf-dump-protected.sf-dump-highlight,
 .sf-dump-private.sf-dump-highlight,
 .sf-dump-str.sf-dump-highlight,
@@ -646,7 +646,7 @@ pre.sf-dump code {
     border: 1px solid #7DA0B1;
     border-radius: 3px;
 }
-.sf-dump-public.sf-dump-highlight-active,
+.sf-dump-booking.sf-dump-highlight-active,
 .sf-dump-protected.sf-dump-highlight-active,
 .sf-dump-private.sf-dump-highlight-active,
 .sf-dump-str.sf-dump-highlight-active,
@@ -775,7 +775,7 @@ EOHTML
 
         if ('const' === $style && isset($attr['value'])) {
             $style .= sprintf(' title="%s"', esc(is_scalar($attr['value']) ? $attr['value'] : json_encode($attr['value'])));
-        } elseif ('public' === $style) {
+        } elseif ('booking' === $style) {
             $style .= sprintf(' title="%s"', empty($attr['dynamic']) ? 'Public property' : 'Runtime added dynamic property');
         } elseif ('str' === $style && 1 < $attr['length']) {
             $style .= sprintf(' title="%d%s characters"', $attr['length'], $attr['binary'] ? ' binary or non-UTF-8' : '');

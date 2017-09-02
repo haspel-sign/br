@@ -44,7 +44,7 @@ ReflectionClass {
     "name" => ReflectionProperty {
 %A    +name: "name"
       +class: "ReflectionClass"
-%A    modifiers: "public"
+%A    modifiers: "booking"
     }
 %A]
   methods: array:%d [

@@ -1,5 +1,5 @@
 <!-- ------------------  Start Booking-Room-Search Form ----------------------- -->
-<form id="searchForm" class="form-inline" action="booking" method="get">
+<form id="searchForm" class="form-inline" action="{http://yoursite.com/booking-dir}" method="get">
     <div
         class="input-group">
         <div class="input-group-addon">
@@ -18,7 +18,6 @@
     </div>
     <div
         class="input-group">
-
         <div class="input-group-addon">
             <span class="fa fa-user fa-lg" aria-hidden="true"></span>
         </div>

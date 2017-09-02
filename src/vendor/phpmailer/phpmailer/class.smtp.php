@@ -251,7 +251,7 @@ class SMTP
      * @param integer $port The port number to connect to
      * @param integer $timeout How long to wait for the connection to open
      * @param array $options An array of options for stream_context_create()
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function connect($host, $port = null, $timeout = 30, $options = array())
@@ -342,7 +342,7 @@ class SMTP
 
     /**
      * Initiate a TLS (encrypted) session.
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function startTLS()
@@ -382,7 +382,7 @@ class SMTP
      * @param string $realm The auth realm for NTLM
      * @param string $workstation The auth workstation for NTLM
      * @param null|OAuth $OAuth An optional OAuth instance (@see PHPMailerOAuth)
-     * @return bool True if successfully authenticated.* @access public
+     * @return bool True if successfully authenticated.* @access booking
      */
     public function authenticate(
         $username,
@@ -582,7 +582,7 @@ class SMTP
 
     /**
      * Check connection state.
-     * @access public
+     * @access booking
      * @return boolean True if connected.
      */
     public function connected()
@@ -607,7 +607,7 @@ class SMTP
      * Close the socket and clean up the state of the class.
      * Don't use this function without first trying to use QUIT.
      * @see quit()
-     * @access public
+     * @access booking
      * @return void
      */
     public function close()
@@ -632,7 +632,7 @@ class SMTP
      * and the message body being separated by and additional <CRLF>.
      * Implements rfc 821: DATA <CRLF>
      * @param string $msg_data Message data to send
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function data($msg_data)
@@ -721,7 +721,7 @@ class SMTP
      * Implements RFC 821: HELO <SP> <domain> <CRLF>
      * and RFC 2821 EHLO.
      * @param string $host The host name or IP to connect to
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function hello($host = '')
@@ -801,7 +801,7 @@ class SMTP
      * commands may be called followed by a data command.
      * Implements rfc 821: MAIL <SP> FROM:<reverse-path> <CRLF>
      * @param string $from Source address of this message
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function mail($from)
@@ -819,7 +819,7 @@ class SMTP
      * Closes the socket if there is no error or the $close_on_error argument is true.
      * Implements from rfc 821: QUIT <CRLF>
      * @param boolean $close_on_error Should the connection close if an error occurs?
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function quit($close_on_error = true)
@@ -839,7 +839,7 @@ class SMTP
      * Returns true if the recipient was accepted false if it was rejected.
      * Implements from rfc 821: RCPT <SP> TO:<forward-path> <CRLF>
      * @param string $address The address the message is being sent to
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function recipient($address)
@@ -855,7 +855,7 @@ class SMTP
      * Send an SMTP RSET command.
      * Abort any transaction that is currently in progress.
      * Implements rfc 821: RSET <CRLF>
-     * @access public
+     * @access booking
      * @return boolean True on success.
      */
     public function reset()
@@ -934,7 +934,7 @@ class SMTP
      * in and send them an email.
      * Implements rfc 821: SAML <SP> FROM:<reverse-path> <CRLF>
      * @param string $from The address the message is from
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function sendAndMail($from)
@@ -945,7 +945,7 @@ class SMTP
     /**
      * Send an SMTP VRFY command.
      * @param string $name The name to verify
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function verify($name)
@@ -956,7 +956,7 @@ class SMTP
     /**
      * Send an SMTP NOOP command.
      * Used to keep keep-alives alive, doesn't actually do anything
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function noop()
@@ -970,7 +970,7 @@ class SMTP
      * This method is here to make the RFC821 Definition complete for this class
      * and _may_ be implemented in future
      * Implements from rfc 821: TURN <CRLF>
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function turn()
@@ -983,7 +983,7 @@ class SMTP
     /**
      * Send raw data to the server.
      * @param string $data The data to send
-     * @access public
+     * @access booking
      * @return integer|boolean The number of bytes sent to the server or false on error
      */
     public function client_send($data)
@@ -997,7 +997,7 @@ class SMTP
 
     /**
      * Get the latest error.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getError()
@@ -1007,7 +1007,7 @@ class SMTP
 
     /**
      * Get SMTP extensions available on the server
-     * @access public
+     * @access booking
      * @return array|null
      */
     public function getServerExtList()
@@ -1058,7 +1058,7 @@ class SMTP
 
     /**
      * Get the last reply from the server.
-     * @access public
+     * @access booking
      * @return string
      */
     public function getLastReply()

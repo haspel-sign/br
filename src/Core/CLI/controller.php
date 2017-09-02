@@ -22,7 +22,7 @@ use Core\Libs\Csrf;
 
 class $file extends Controller
 {
-    public function __construct()
+    booking function __construct()
     {
         parent::__construct();
 

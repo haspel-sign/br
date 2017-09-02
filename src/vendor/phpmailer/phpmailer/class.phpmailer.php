@@ -363,7 +363,7 @@ class PHPMailer
     /**
      * Storage for addresses when SingleTo is enabled.
      * @var array
-     * @TODO This should really not be public
+     * @TODO This should really not be booking
      */
     public $SingleToArray = array();
 
@@ -1063,7 +1063,7 @@ class PHPMailer
      * You can also set the PHPMailer::$validator static to a callable, allowing built-in methods to use your validator.
      * @return boolean
      * @static
-     * @access public
+     * @access booking
      */
     public static function validateAddress($address, $patternselect = null)
     {
@@ -1593,7 +1593,7 @@ class PHPMailer
      * Returns false if the operation failed.
      * @param array $options An array of options compatible with stream_context_create()
      * @uses SMTP
-     * @access public
+     * @access booking
      * @throws phpmailerException
      * @return boolean
      */
@@ -1736,7 +1736,7 @@ class PHPMailer
      * @param string $langcode ISO 639-1 2-character language code (e.g. French is "fr")
      * @param string $lang_path Path to the language file directory, with trailing separator (slash)
      * @return boolean
-     * @access public
+     * @access booking
      */
     public function setLanguage($langcode = 'en', $lang_path = '')
     {
@@ -1812,7 +1812,7 @@ class PHPMailer
 
     /**
      * Create recipient headers.
-     * @access public
+     * @access booking
      * @param string $type
      * @param array $addr An array of recipient,
      * where each recipient is a 2-element indexed array with element 0 containing an address
@@ -1831,7 +1831,7 @@ class PHPMailer
 
     /**
      * Format an address for use in a message header.
-     * @access public
+     * @access booking
      * @param array $addr A 2-element indexed array, element 0 containing an address, element 1 containing a name
      *      like array('joe@example.com', 'Joe User')
      * @return string
@@ -1855,7 +1855,7 @@ class PHPMailer
      * @param string $message The message to wrap
      * @param integer $length The line length to wrap to
      * @param boolean $qp_mode Whether to run in Quoted-Printable mode
-     * @access public
+     * @access booking
      * @return string
      */
     public function wrapText($message, $length, $qp_mode = false)
@@ -1952,7 +1952,7 @@ class PHPMailer
      * Find the last character boundary prior to $maxLength in a utf-8
      * quoted-printable encoded string.
      * Original written by Colin Brown.
-     * @access public
+     * @access booking
      * @param string $encodedText utf-8 QP text
      * @param integer $maxLength Find the last character boundary prior to this length
      * @return integer
@@ -1999,7 +1999,7 @@ class PHPMailer
      * Wraps the message body to the number of chars set in the WordWrap property.
      * You should only do this to plain-text bodies as wrapping HTML tags may break them.
      * This is called automatically by createBody(), so you don't need to call it yourself.
-     * @access public
+     * @access booking
      * @return void
      */
     public function setWordWrap()
@@ -2023,7 +2023,7 @@ class PHPMailer
 
     /**
      * Assemble message headers.
-     * @access public
+     * @access booking
      * @return string The assembled headers
      */
     public function createHeader()
@@ -2118,7 +2118,7 @@ class PHPMailer
 
     /**
      * Get the message MIME type headers.
-     * @access public
+     * @access booking
      * @return string
      */
     public function getMailMIME()
@@ -2173,7 +2173,7 @@ class PHPMailer
      * Includes complete headers and body.
      * Only valid post preSend().
      * @see PHPMailer::preSend()
-     * @access public
+     * @access booking
      * @return string
      */
     public function getSentMIMEMessage()
@@ -2192,7 +2192,7 @@ class PHPMailer
     /**
      * Assemble the message body.
      * Returns an empty string on failure.
-     * @access public
+     * @access booking
      * @throws phpmailerException
      * @return string The assembled message body
      */
@@ -2472,7 +2472,7 @@ class PHPMailer
 
     /**
      * Format a header line.
-     * @access public
+     * @access booking
      * @param string $name
      * @param string $value
      * @return string
@@ -2484,7 +2484,7 @@ class PHPMailer
 
     /**
      * Return a formatted mail line.
-     * @access public
+     * @access booking
      * @param string $value
      * @return string
      */
@@ -2724,7 +2724,7 @@ class PHPMailer
      * Returns an empty string on failure.
      * @param string $str The text to encode
      * @param string $encoding The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'
-     * @access public
+     * @access booking
      * @return string
      */
     public function encodeString($str, $encoding = 'base64')
@@ -2758,7 +2758,7 @@ class PHPMailer
     /**
      * Encode a header string optimally.
      * Picks shortest of Q, B, quoted-printable or none.
-     * @access public
+     * @access booking
      * @param string $str
      * @param string $position
      * @return string
@@ -2823,7 +2823,7 @@ class PHPMailer
 
     /**
      * Check if a string contains multi-byte characters.
-     * @access public
+     * @access booking
      * @param string $str multi-byte text to wrap encode
      * @return boolean
      */
@@ -2851,7 +2851,7 @@ class PHPMailer
      * without breaking lines within a character.
      * Adapted from a function by paravoid
      * @link http://www.php.net/manual/en/function.mb-encode-mimeheader.php#60283
-     * @access public
+     * @access booking
      * @param string $str multi-byte text to wrap encode
      * @param string $linebreak string to use as linefeed/end-of-line
      * @return string
@@ -2892,7 +2892,7 @@ class PHPMailer
     /**
      * Encode a string in quoted-printable format.
      * According to RFC2045 section 6.7.
-     * @access public
+     * @access booking
      * @param string $string The text to encode
      * @param integer $line_max Number of chars allowed on a line before wrapping
      * @return string
@@ -2916,7 +2916,7 @@ class PHPMailer
     /**
      * Backward compatibility wrapper for an old QP encoding function that was removed.
      * @see PHPMailer::encodeQP()
-     * @access public
+     * @access booking
      * @param string $string
      * @param integer $line_max
      * @param boolean $space_conv
@@ -2936,7 +2936,7 @@ class PHPMailer
      * @link http://tools.ietf.org/html/rfc2047
      * @param string $str the text to encode
      * @param string $position Where the text is going to be used, see the RFC for what that means
-     * @access public
+     * @access booking
      * @return string
      */
     public function encodeQ($str, $position = 'text')
@@ -3105,7 +3105,7 @@ class PHPMailer
 
     /**
      * Check if an inline attachment is present.
-     * @access public
+     * @access booking
      * @return boolean
      */
     public function inlineImageExists()
@@ -3266,7 +3266,7 @@ class PHPMailer
 
     /**
      * Return an RFC 822 formatted date.
-     * @access public
+     * @access booking
      * @return string
      * @static
      */
@@ -3327,7 +3327,7 @@ class PHPMailer
 
     /**
      * Check if an error occurred.
-     * @access public
+     * @access booking
      * @return boolean True if an error did occur.
      */
     public function isError()
@@ -3338,7 +3338,7 @@ class PHPMailer
     /**
      * Ensure consistent line endings in a string.
      * Changes every end of line from CRLF, CR or LF to $this->LE.
-     * @access public
+     * @access booking
      * @param string $str String to fixEOL
      * @return string
      */
@@ -3357,7 +3357,7 @@ class PHPMailer
      * Add a custom header.
      * $name value can be overloaded to contain
      * both header name and value (name:value)
-     * @access public
+     * @access booking
      * @param string $name Custom header name
      * @param string $value Header value
      * @return void
@@ -3390,7 +3390,7 @@ class PHPMailer
      * will look for an image file in $basedir/images/a.png and convert it to inline.
      * If you don't provide a $basedir, relative paths will be left untouched (and thus probably break in email)
      * If you don't want to apply these transformations to your HTML, just set Body and AltBody directly.
-     * @access public
+     * @access booking
      * @param string $message HTML message string
      * @param string $basedir Absolute path to a base directory to prepend to relative paths to images
      * @param boolean|callable $advanced Whether to use the internal HTML to text converter
@@ -3506,7 +3506,7 @@ class PHPMailer
     /**
      * Get the MIME type for a file extension.
      * @param string $ext File extension
-     * @access public
+     * @access booking
      * @return string MIME type of file.
      * @static
      */
@@ -3691,7 +3691,7 @@ class PHPMailer
      * `$mail->set('SMTPSecure', 'tls');`
      *   is the same as:
      * `$mail->SMTPSecure = 'tls';`
-     * @access public
+     * @access booking
      * @param string $name The property name to set
      * @param mixed $value The value to set the property to
      * @return boolean
@@ -3710,7 +3710,7 @@ class PHPMailer
 
     /**
      * Strip newlines to prevent header injection.
-     * @access public
+     * @access booking
      * @param string $str
      * @return string
      */
@@ -3726,7 +3726,7 @@ class PHPMailer
      * @param string $text
      * @param string $breaktype What kind of line break to use, defaults to CRLF
      * @return string
-     * @access public
+     * @access booking
      * @static
      */
     public static function normalizeBreaks($text, $breaktype = "\r\n")
@@ -3735,8 +3735,8 @@ class PHPMailer
     }
 
     /**
-     * Set the public and private key files and password for S/MIME signing.
-     * @access public
+     * Set the booking and private key files and password for S/MIME signing.
+     * @access booking
      * @param string $cert_filename
      * @param string $key_filename
      * @param string $key_pass Password for private key
@@ -3752,7 +3752,7 @@ class PHPMailer
 
     /**
      * Quoted-Printable-encode a DKIM header.
-     * @access public
+     * @access booking
      * @param string $txt
      * @return string
      */
@@ -3772,7 +3772,7 @@ class PHPMailer
 
     /**
      * Generate a DKIM signature.
-     * @access public
+     * @access booking
      * @param string $signHeader
      * @throws phpmailerException
      * @return string The DKIM signature value
@@ -3819,7 +3819,7 @@ class PHPMailer
 
     /**
      * Generate a DKIM canonicalization header.
-     * @access public
+     * @access booking
      * @param string $signHeader Header
      * @return string
      */
@@ -3839,7 +3839,7 @@ class PHPMailer
 
     /**
      * Generate a DKIM canonicalization body.
-     * @access public
+     * @access booking
      * @param string $body Message Body
      * @return string
      */
@@ -3860,7 +3860,7 @@ class PHPMailer
 
     /**
      * Create the DKIM header and body in a new message header.
-     * @access public
+     * @access booking
      * @param string $headers_line Header lines
      * @param string $subject Subject
      * @param string $body Body
@@ -3951,9 +3951,9 @@ class PHPMailer
     }
 
     /**
-     * Allows for public read access to 'to' property.
+     * Allows for booking read access to 'to' property.
      * @note: Before the send() call, queued addresses (i.e. with IDN) are not yet included.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getToAddresses()
@@ -3962,9 +3962,9 @@ class PHPMailer
     }
 
     /**
-     * Allows for public read access to 'cc' property.
+     * Allows for booking read access to 'cc' property.
      * @note: Before the send() call, queued addresses (i.e. with IDN) are not yet included.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getCcAddresses()
@@ -3973,9 +3973,9 @@ class PHPMailer
     }
 
     /**
-     * Allows for public read access to 'bcc' property.
+     * Allows for booking read access to 'bcc' property.
      * @note: Before the send() call, queued addresses (i.e. with IDN) are not yet included.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getBccAddresses()
@@ -3984,9 +3984,9 @@ class PHPMailer
     }
 
     /**
-     * Allows for public read access to 'ReplyTo' property.
+     * Allows for booking read access to 'ReplyTo' property.
      * @note: Before the send() call, queued addresses (i.e. with IDN) are not yet included.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getReplyToAddresses()
@@ -3995,9 +3995,9 @@ class PHPMailer
     }
 
     /**
-     * Allows for public read access to 'all_recipients' property.
+     * Allows for booking read access to 'all_recipients' property.
      * @note: Before the send() call, queued addresses (i.e. with IDN) are not yet included.
-     * @access public
+     * @access booking
      * @return array
      */
     public function getAllRecipientAddresses()

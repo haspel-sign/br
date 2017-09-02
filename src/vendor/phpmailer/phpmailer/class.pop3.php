@@ -32,28 +32,28 @@ class POP3
     /**
      * The POP3 PHPMailer Version number.
      * @var string
-     * @access public
+     * @access booking
      */
     public $Version = '5.2.24';
 
     /**
      * Default POP3 port number.
      * @var integer
-     * @access public
+     * @access booking
      */
     public $POP3_PORT = 110;
 
     /**
      * Default timeout in seconds.
      * @var integer
-     * @access public
+     * @access booking
      */
     public $POP3_TIMEOUT = 30;
 
     /**
      * POP3 Carriage Return + Line Feed.
      * @var string
-     * @access public
+     * @access booking
      * @deprecated Use the constant instead
      */
     public $CRLF = "\r\n";
@@ -62,42 +62,42 @@ class POP3
      * Debug display level.
      * Options: 0 = no, 1+ = yes
      * @var integer
-     * @access public
+     * @access booking
      */
     public $do_debug = 0;
 
     /**
      * POP3 mail server hostname.
      * @var string
-     * @access public
+     * @access booking
      */
     public $host;
 
     /**
      * POP3 port number.
      * @var integer
-     * @access public
+     * @access booking
      */
     public $port;
 
     /**
      * POP3 Timeout Value in seconds.
      * @var integer
-     * @access public
+     * @access booking
      */
     public $tval;
 
     /**
      * POP3 username
      * @var string
-     * @access public
+     * @access booking
      */
     public $username;
 
     /**
      * POP3 password.
      * @var string
-     * @access public
+     * @access booking
      */
     public $password;
 
@@ -153,7 +153,7 @@ class POP3
      * Authenticate with a POP3 server.
      * A connect, login, disconnect sequence
      * appropriate for POP-before SMTP authorisation.
-     * @access public
+     * @access booking
      * @param string $host The hostname to connect to
      * @param integer|boolean $port The port number to connect to
      * @param integer|boolean $timeout The timeout value
@@ -198,7 +198,7 @@ class POP3
 
     /**
      * Connect to a POP3 server.
-     * @access public
+     * @access booking
      * @param string $host
      * @param integer|boolean $port
      * @param integer $tval
@@ -258,7 +258,7 @@ class POP3
     /**
      * Log in to the POP3 server.
      * Does not support APOP (RFC 2828, 4949).
-     * @access public
+     * @access booking
      * @param string $username
      * @param string $password
      * @return boolean
@@ -291,7 +291,7 @@ class POP3
 
     /**
      * Disconnect from the POP3 server.
-     * @access public
+     * @access booking
      */
     public function disconnect()
     {
