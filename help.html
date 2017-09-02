@@ -45,5 +45,22 @@ http://your-sitename/booking/install/demo<br>
 <p>http://your-sitename/booking</p>
 <h3><a id="_____53"></a>Контролния панел е на адрес:</h3>
 <p>http://your-sitename/booking/booking-dashboard</p>
+<h3><a id="____57"></a>Интеграция със съществуващ сайт</h3>
+<p>На подходящо място във вашият сайт създайте линк към резервационната<br>
+система:</p>
+<pre><code>    &lt;a href=&quot;http://your-site/booking-dir&quot;&gt;РЕЗЕРВИРАЙ&lt;/a&gt;
+</code></pre>
+<p>или да вградите форма за търсене по дати</p>
+<pre><code>&lt;form id=&quot;searchForm&quot; action=&quot;{http://yoursite.com/booking-dir}&quot; method=&quot;get&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;checkin&quot; class=&quot;form-control input-lg&quot; id=&quot;checkin&quot;
+                   placeholder=&quot;настаняване&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control input-lg&quot; name=&quot;checkout&quot; id=&quot;checkout&quot;
+                   placeholder=&quot;напускане&quot;&gt;  
+    &lt;input type=&quot;number&quot; class=&quot;form-control input-lg&quot; name=&quot;adults&quot; id=&quot;adults&quot;
+               placeholder=&quot;гости&quot;&gt;
+&lt;button id=&quot;searchButton&quot; class=&quot;&quot; type=&quot;submit&quot;&gt;търси&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Пимерни кодове има в директория “demo-code”</p>
 
 </body></html>

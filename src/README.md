@@ -54,3 +54,27 @@ http://your-sitename/booking
 ### Контролния панел е на адрес:
 
 http://your-sitename/booking/booking-dashboard
+
+### Интеграция със съществуващ сайт
+
+На подходящо място във вашият сайт създайте линк към резервационната
+система:
+
+```
+    <a href="http://your-site/booking-dir" class="">РЕЗЕРВИРАЙ</a>
+```
+или да вградите форма за търсене по дати
+
+```
+<form id="searchForm" action="{http://yoursite.com/booking-dir}" method="get">
+    <input type="text" name="checkin" class="form-control input-lg" id="checkin"
+                   placeholder="настаняване">
+    <input type="text" class="form-control input-lg" name="checkout" id="checkout"
+                   placeholder="напускане">  
+    <input type="number" class="form-control input-lg" name="adults" id="adults"
+               placeholder="гости">
+<button id="searchButton" class="" type="submit">търси</button>
+</form>
+```
+
+Пимерни кодове има в директория "demo-code"
