@@ -48,18 +48,18 @@ http://your-sitename/booking/install/demo<br>
 <h3><a id="____57"></a>Интеграция със съществуващ сайт</h3>
 <p>На подходящо място във вашият сайт създайте линк към резервационната<br>
 система:</p>
-<pre><code>    &lt;a href=&quot;http://your-site/booking-dir&quot;&gt;РЕЗЕРВИРАЙ&lt;/a&gt;
+<pre><code class="language-html">    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://your-site/booking-dir"</span>&gt;</span>РЕЗЕРВИРАЙ<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 </code></pre>
 <p>или да вградите форма за търсене по дати</p>
-<pre><code>&lt;form id=&quot;searchForm&quot; action=&quot;{http://yoursite.com/booking-dir}&quot; method=&quot;get&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;checkin&quot; class=&quot;form-control input-lg&quot; id=&quot;checkin&quot;
-                   placeholder=&quot;настаняване&quot;&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control input-lg&quot; name=&quot;checkout&quot; id=&quot;checkout&quot;
-                   placeholder=&quot;напускане&quot;&gt;  
-    &lt;input type=&quot;number&quot; class=&quot;form-control input-lg&quot; name=&quot;adults&quot; id=&quot;adults&quot;
-               placeholder=&quot;гости&quot;&gt;
-&lt;button id=&quot;searchButton&quot; class=&quot;&quot; type=&quot;submit&quot;&gt;търси&lt;/button&gt;
-&lt;/form&gt;
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"searchForm"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">"http://yoursite.com/booking-dir"</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">"get"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"checkin"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control input-lg"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"checkin"</span>
+                   <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"настаняване"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control input-lg"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"checkout"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"checkout"</span>
+                   <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"напускане"</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"number"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control input-lg"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"adults"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"adults"</span>
+               <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"гости"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"searchButton"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"submit"</span>&gt;</span>търси<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
 </code></pre>
 <p>Пимерни кодове има в директория “demo-code”</p>
 
