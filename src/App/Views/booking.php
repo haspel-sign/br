@@ -41,7 +41,7 @@
                                 <form onsubmit="ShowLoading()" method="post" action="">
                                     <?php csrf_field(); ?>
                                     <div class="row">
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6 col-sm-12">
                                             <div
                                                 class="form-group <?php echo empty(validation_error('name')) ? '' :' has-error'; ?>">
                                                 <label for="name"><?php echo tr_('име'); ?> *</label>
@@ -50,7 +50,7 @@
                                                 <?php echo validation_error('name'); ?>
                                             </div>
                                         </div>
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6 col-sm-12">
                                             <div
                                                 class="form-group<?php echo empty(validation_error('email')) ? '' :' has-error'; ?>">
                                                 <label for="email">e-mail *</label>
@@ -61,7 +61,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6 col-sm-12">
                                             <div
                                                 class="form-group<?php echo empty(validation_error('telefon')) ? '' :' has-error'; ?>">
                                                 <label for="telefon"><?php echo tr_('телефон'); ?> *</label>
@@ -71,7 +71,7 @@
                                                 <?php echo validation_error('telefon'); ?>
                                             </div>
                                         </div>
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6 col-sm-12">
                                             <div
                                                 class="form-group<?php echo empty(validation_error('text')) ? '' :' has-error'; ?>">
                                                 <label for="text"><?php echo tr_('коментар'); ?></label>

@@ -41,10 +41,13 @@ $lang = $str[0];
     .container-hover:hover .middle {
         opacity: 1;
     }
+    .input-group-addon, input{
+        border-radius: 0 !important;
+    }
 </style>
 <div class="container">
     <div class="row" style="padding: 5px;">
-        <div class="col-md-1 col-md-offset-11">
+        <div class="col-md-1 col-md-offset-10">
             <a href="<?php echo site_url('lang/bg_BG'); ?>">
                 <img src="<?php echo site_url('images/bg.png'); ?>" alt="bg-flag">
             </a>
@@ -60,47 +63,53 @@ $lang = $str[0];
                 <div id="scroll" class="panel-body">
                     <div class="text-center">
                         <!-- ------------------  Start Booking-Room-Search Form ----------------------- -->
-                        <form id="searchForm" class="form-inline"
-                              action="<?php echo site_url(route('search', [''], 'get')); ?>"
+                        <form id="searchForm" action="<?php echo site_url(route('search', [''], 'get')); ?>"
                               name="insert"
                               method="get">
-                            <div
-                                class="input-group input-group-sm<?php echo empty(validation_error('checkin')) ? '' :' has-error'; ?>">
-                                <div class="input-group-addon">
-                                    <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
+                            <div class="col-md-3 col-sm-12" style="margin-right: 0 !important; padding:5px 5px 5px 5px !important;">
+                                <div
+                                    class="input-group<?php echo empty(validation_error('checkin')) ? '' :' has-error'; ?>">
+                                    <div class="input-group-addon" style="border-radius: 0 !important;">
+                                        <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
+                                    </div>
+                                    <input type="text" name="checkin" class="form-control" id="checkin"
+                                           placeholder="<?php echo $tr_placeholder_arrival; ?>"
+                                           value="<?php echo oldValue('checkin'); ?>">
                                 </div>
-                                <input type="text" name="checkin" class="form-control input-lg" id="checkin"
-                                       placeholder="<?php echo $tr_placeholder_arrival; ?>"
-                                       value="<?php echo oldValue('checkin'); ?>">
                             </div>
-
-                            <div
-                                class="input-group input-group-sm<?php echo empty(validation_error('checkout')) ? '' :' has-error'; ?>">
-                                <div class="input-group-addon">
-                                    <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
+                            <div class="col-md-3 col-sm-12" style="margin-right: 0 !important; padding:5px 5px 5px 5px !important;">
+                                <div
+                                    class="input-group<?php echo empty(validation_error('checkout')) ? '' :' has-error'; ?>">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="checkout" id="checkout"
+                                           placeholder="<?php echo $tr_placeholder_departure; ?>"
+                                           value="<?php echo oldValue('checkout'); ?>">
                                 </div>
-                                <input type="text" class="form-control input-lg" name="checkout" id="checkout"
-                                       placeholder="<?php echo $tr_placeholder_departure; ?>"
-                                       value="<?php echo oldValue('checkout'); ?>">
                             </div>
-                            <div
-                                class="input-group input-group-sm<?php echo empty(validation_error('adults')) ? '' :' has-error'; ?>"
-                                style="width: 190px">
-                                <div class="input-group-addon">
-                                    <span class="fa fa-user fa-lg" aria-hidden="true"></span>
+                            <div class="col-md-3 col-sm-12" style="margin-right: 0 !important; padding:5px 5px 5px 5px !important;">
+                                <div
+                                    class="input-group<?php echo empty(validation_error('adults')) ? '' :' has-error'; ?>">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-user fa-lg" aria-hidden="true"></span>
+                                    </div>
+                                    <input type="number" class="form-control" name="adults" id="adults"
+                                           placeholder="<?php echo tr_('гости'); ?>"
+                                           value="<?php echo oldValue('adults'); ?>">
                                 </div>
-                                <input type="number" class="form-control input-lg" name="adults" id="adults"
-                                       placeholder="<?php echo tr_('гости'); ?>"
-                                       value="<?php echo oldValue('adults'); ?>">
                             </div>
-                            <span class="input-group input-group-sm">
-                                <button id="searchButton" class="btn btn-info btn-outline btn-sm" data-toggle="tooltip"
+                            <div class="col-md-3 col-sm-12" style="margin-right: 0 !important; padding:5px 5px 5px 5px !important;">
+                                <span class="input-group">
+                                <button id="searchButton" class="btn btn-info btn-outline btn-block" data-toggle="tooltip"
                                         data-placement="bottom"
                                         title="<?php echo tr_('търси свободни стаи за дата'); ?>"
                                         type="submit"><i class="fa fa-search" aria-hidden="true"></i>
                                     <?php echo $tr_placeholder_search; ?>
                                 </button>
                             </span>
+                            </div>
+
                         </form>
                     </div>
                     <!-- End Booking-room Form -->
@@ -167,13 +176,14 @@ $lang = $str[0];
                                 <div class="panel-body">
                                     <div class="row">
 
-                                        <form data-display="<?php echo $key; ?>" class="form-horizontal" method="post">
+                                        <form data-display="<?php echo $key; ?>" method="post" class="addRoom">
                                             <!-- image -->
                                             <div class="col-md-3">
                                                 <div class="container-hover">
                                                     <?php $image = unserialize($result['img_type_url']); ?>
                                                     <img id="room-img" class="image-hover thumb-size img-responsive"
                                                          src="<?php echo site_url('/') . $image[0]; ?>">
+
                                                     <div class="middle">
                                                         <a class="btn btn-warning"
                                                            href="<?php echo site_url(route('roominfo', [$result['room_type_slug']], 'GET') . '?r_k=' . $key); ?>">
@@ -210,19 +220,21 @@ $lang = $str[0];
                                                         </p>
                                                     </li>
                                                 </ul>
-                                                <div class="form-group text-center" style="margin:30px 0 15px 0;">
-
-                                                    <div id="avail-<?php echo $key; ?>" class="col-md-3 available">
-                                                        <select name="quantity" class="form-control available"
-                                                                onchange="displaySelect('<?php echo $key; ?>')" <?php echo $disabled; ?>>
-                                                            <option value="0"><?php echo tr_('брой'); ?></option>
-                                                            <?php for ($i = 1; $i <= $result['available'] && $i <= 10; $i++): ?>
-                                                                <option
-                                                                    value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                            <?php endfor; ?>
-                                                        </select>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <div id="avail-<?php echo $key; ?>" class="available">
+                                                            <select name="quantity" class="form-control available"
+                                                                    onchange="displaySelect('<?php echo $key; ?>')" <?php echo $disabled; ?>>
+                                                                <option value="0"><?php echo tr_('брой'); ?></option>
+                                                                <?php for ($i = 1; $i <= $result['available'] && $i <= 10; $i++): ?>
+                                                                    <option
+                                                                        value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                <?php endfor; ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-xs-4">
+
                                                         <div class="input-group adults" style="display: none"
                                                              data-display="<?php echo $key; ?>">
                                                             <span class="input-group-addon"><span
@@ -233,8 +245,10 @@ $lang = $str[0];
                                                                 <?php endfor; ?>
                                                             </select>
                                                         </div>
+
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-xs-4">
+
                                                         <?php if ($result['child'] != 0): ?>
                                                             <div class="input-group child" style="display: none"
                                                                  data-display="<?php echo $key; ?>">
@@ -248,6 +262,7 @@ $lang = $str[0];
                                                                 </select>
                                                             </div>
                                                         <?php endif; ?>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,7 +328,7 @@ $lang = $str[0];
 
                 displayAdded();
 
-                $('.form-horizontal').on("submit", function (event) {
+                $('.addRoom').on("submit", function (event) {
                     event.preventDefault();
                     var form_data = ( $(this).serialize() );
                     var button_content = $(this).find('button.add');
