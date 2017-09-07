@@ -111,6 +111,11 @@
                     </div>
                 </div>
             </div>
+        </div><!-- -------- end md-6 -->
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <!-- If reservation -->
             <?php if ($result && $available !== 0): ?>
                 <form class="form-horizontal" action="<?php echo site_url(route('booking', [], 'get')); ?>"
@@ -118,7 +123,7 @@
                     <input type="hidden" name="r_k" value="<?php echo $r_k; ?>">
 
                     <div class="row" style="padding-left: 35px">
-                        <div class="col-md-12">
+                        <div>
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><?php echo tr_('Вашата заявка за престой'); ?>:</h3>
@@ -139,7 +144,7 @@
                                         <div id="avail-<?php echo $key; ?>" class="col-md-4 available">
                                             <select name="quantity" class="form-control available"
                                                     onchange="displaySelect('<?php echo $r_k; ?>')">
-                                                <option value="0">--избери--</option>
+                                                <option value="0">избери</option>
                                                 <?php for ($i = 1; $i <= $available && $i <= 10; $i++): ?>
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                 <?php endfor; ?>
@@ -174,6 +179,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="row" style="padding-left: 35px">
@@ -191,8 +197,8 @@
                     </div>
                 </form>
             <?php else: ?>
-                <div class="row" style="padding-left: 35px">
-                    <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-10">
                         <div class="room-button">
                              <span class="input-group">
                         <a href="<?php echo site_url(route('search')); ?>" class="btn btn-primary btn-lg">
@@ -203,7 +209,7 @@
                     </div>
                 </div>
             <?php endif; ?>
-        </div><!-- -------- -->
+        </div>
     </div>
 </div> <!-- end container -->
 <script>

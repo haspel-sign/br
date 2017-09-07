@@ -167,13 +167,14 @@ $lang = $str[0];
                                 <div class="panel-body">
                                     <div class="row">
 
-                                        <form data-display="<?php echo $key; ?>" class="form-horizontal" method="post">
+                                        <form data-display="<?php echo $key; ?>" method="post">
                                             <!-- image -->
                                             <div class="col-md-3">
                                                 <div class="container-hover">
                                                     <?php $image = unserialize($result['img_type_url']); ?>
                                                     <img id="room-img" class="image-hover thumb-size img-responsive"
                                                          src="<?php echo site_url('/') . $image[0]; ?>">
+
                                                     <div class="middle">
                                                         <a class="btn btn-warning"
                                                            href="<?php echo site_url(route('roominfo', [$result['room_type_slug']], 'GET') . '?r_k=' . $key); ?>">
@@ -210,19 +211,21 @@ $lang = $str[0];
                                                         </p>
                                                     </li>
                                                 </ul>
-                                                <div class="form-group text-center" style="margin:30px 0 15px 0;">
-
-                                                    <div id="avail-<?php echo $key; ?>" class="col-md-3 available">
-                                                        <select name="quantity" class="form-control available"
-                                                                onchange="displaySelect('<?php echo $key; ?>')" <?php echo $disabled; ?>>
-                                                            <option value="0"><?php echo tr_('брой'); ?></option>
-                                                            <?php for ($i = 1; $i <= $result['available'] && $i <= 10; $i++): ?>
-                                                                <option
-                                                                    value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                            <?php endfor; ?>
-                                                        </select>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <div id="avail-<?php echo $key; ?>" class="available">
+                                                            <select name="quantity" class="form-control available"
+                                                                    onchange="displaySelect('<?php echo $key; ?>')" <?php echo $disabled; ?>>
+                                                                <option value="0"><?php echo tr_('брой'); ?></option>
+                                                                <?php for ($i = 1; $i <= $result['available'] && $i <= 10; $i++): ?>
+                                                                    <option
+                                                                        value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                                <?php endfor; ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-xs-4">
+
                                                         <div class="input-group adults" style="display: none"
                                                              data-display="<?php echo $key; ?>">
                                                             <span class="input-group-addon"><span
@@ -233,8 +236,10 @@ $lang = $str[0];
                                                                 <?php endfor; ?>
                                                             </select>
                                                         </div>
+
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-xs-4">
+
                                                         <?php if ($result['child'] != 0): ?>
                                                             <div class="input-group child" style="display: none"
                                                                  data-display="<?php echo $key; ?>">
@@ -248,6 +253,7 @@ $lang = $str[0];
                                                                 </select>
                                                             </div>
                                                         <?php endif; ?>
+
                                                     </div>
                                                 </div>
                                             </div>
