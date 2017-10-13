@@ -109,7 +109,7 @@ class DashboardResevations extends Model
                 LEFT JOIN tbl_clients ON tbl_reservation.client_id = tbl_clients.id
                 WHERE
                 (DATE_FORMAT(NOW(),'%Y-%m-%d') = tbl_reservation.checkin)
-                AND tbl_reservation.status !='текуща'
+                AND tbl_reservation.status !='текуща' AND tbl_reservation.status !='new'
                 GROUP BY tbl_reservation.reservation_id";
 
         return $this->execute_sql($sql)->fetchAll(\PDO::FETCH_ASSOC);
