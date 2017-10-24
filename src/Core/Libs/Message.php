@@ -37,7 +37,7 @@ class Message
             $this->dir = get_cookie('lang');
 
         } else {
-            $this->dir = Config::getConfigFromFile('lang') ? Config::getConfigFromFile('lang') :'Bg_BG';
+            $this->dir = Config::getConfigFromFile('lang') ? Config::getConfigFromFile('lang') :'bg_BG';
 
         }
     }
@@ -49,7 +49,7 @@ class Message
      */
     public function get($file)
     {
-        $path = SYSTEM_DIR . 'Messages' . DIRECTORY_SEPARATOR . ucfirst($this->dir) . DIRECTORY_SEPARATOR . $file . '.php';
+        $path = SYSTEM_DIR . 'Messages' . DIRECTORY_SEPARATOR . $this->dir . DIRECTORY_SEPARATOR . $file . '.php';
 
         global $message;
 
