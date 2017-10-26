@@ -51,6 +51,12 @@ class Uri
 
         $request = urldecode(htmlentities($_SERVER['REQUEST_URI']));
 
+        $request = trim($request, '/');
+        
+        $normalize = new UrlNormalizer($request);
+
+        $request = $normalize->normalize();
+
         $this->script_path = $_SERVER['SCRIPT_NAME'];
 
         if (!empty($request)) {
@@ -59,8 +65,6 @@ class Uri
 
                 $this->removeIndex();
             }
-
-            $request = trim($request, '/');
 
             $_uri = trim(substr($request, strlen($this->script_path)), '/');
 
