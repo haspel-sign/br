@@ -52,7 +52,7 @@ class Uri
         $request = urldecode(htmlentities($_SERVER['REQUEST_URI']));
 
         $request = trim($request, '/');
-        
+
         $normalize = new UrlNormalizer($request);
 
         $request = $normalize->normalize();
@@ -66,6 +66,7 @@ class Uri
                 $this->removeIndex();
             }
 
+            // ако се извиква от пр. http://localhost/MyScripts/booking-room/public/search
             $_uri = trim(substr($request, strlen($this->script_path)), '/');
 
             // Ако има заявка от GET : http://booking-room.dev/booking?bar=baz

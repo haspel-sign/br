@@ -84,6 +84,16 @@ class Url
     }
 
     /**
+     *
+     * @param null $uri
+     * @return bool|string
+     */
+    public function getMediaUrl($uri = null)
+    {
+       return substr(str_replace("index.php/", "", $this->getSiteUrl($uri)), 0);
+    }
+
+    /**
      * @return mixed
      */
     public function getReferer()

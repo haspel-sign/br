@@ -17,6 +17,7 @@ class Message
 
     public $_msg = array();
 
+
     /**
      * Message constructor.
      * @param Request $request
