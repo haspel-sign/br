@@ -51,10 +51,6 @@ class Uri
 
         $request = urldecode(htmlentities($_SERVER['REQUEST_URI']));
 
-        $normalize = new UrlNormalizer($request);
-
-        $request = $normalize->normalize();
-
         $this->script_path = $_SERVER['SCRIPT_NAME'];
 
         if (!empty($request)) {
@@ -64,12 +60,9 @@ class Uri
                 $this->removeIndex();
             }
 
-            if (strpos($request, '//') !== false) {
+            $request = trim($request, '/');
 
-                throw new \Exception('Bad request', 500);
-            }
-
-            $_uri = trim(substr($request, strlen($this->script_path) + 1), '/');
+            $_uri = trim(substr($request, strlen($this->script_path)), '/');
 
             // Ако има заявка от GET : http://booking-room.dev/booking?bar=baz
             //искам да върне само -> booking
@@ -88,12 +81,8 @@ class Uri
      */
     protected function removeIndex()
     {
-        if (Config::getConfigFromFile('index_page') == '') {
+        $this->script_path = substr(str_replace("index.php", "", $this->script_path), 1);
 
-            $this->script_path = substr(str_replace("index.php", "", $this->script_path), 1);
-        }
-
-        return $this->script_path;
     }
 
     /**
