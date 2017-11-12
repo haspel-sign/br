@@ -45,7 +45,7 @@ class Router
     /**
      * @var array
      */
-    protected static $allowed_methods = ['GET', 'POST', 'HEAD', 'PUT', 'DELETE'];
+    protected static $allowed_methods = ['GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE'];
     /**
      * @var
      */
@@ -373,7 +373,7 @@ class Router
             return $this->matches;
         }
         /*
-         * Ако няма директно подадение (имаме параметри в Uri)
+         * Ако няма директно подадение (имаме аргументи в Uri)
          * get route Collection Array
          *
          * */
@@ -448,7 +448,7 @@ class Router
                 }, $matches[1]);
 
                 /*
-                * ако има параметри , но не са подадени ->
+                * ако има параметри , но не са подадени аргументите ->
                 *  Router::get('route/{slug}/{id?}', ['controller@action', 'name'=>'name']);
                 * $router->route('name') ще хвърли Exeption
                 */
@@ -517,9 +517,11 @@ class Router
             }
         }
 
-        $this->route = rtrim($this->route, '/');
         if (!$this->route) {
             throw new \Exception(sprintf('Route name: %s is not found in router.php', $routename));
+        } else {
+            $this->route = rtrim($this->route, '/');
+
         }
 
         return $this;
@@ -581,6 +583,14 @@ class Router
         self::addroute('put', $uri, $action);
     }
 
+    /**
+     * @param $uri
+     * @param $action
+     */
+    public static function patch($uri, $action)
+    {
+        self::addroute('patch', $uri, $action);
+    }
     /**
      * @param $uri
      * @param $action
