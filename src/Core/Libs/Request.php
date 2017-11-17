@@ -3,6 +3,7 @@
 namespace Core\Libs;
 
 use Core\Libs\Files\Upload;
+
 /**
  * Class Request
  * @package Libs
@@ -16,6 +17,8 @@ class Request
     public $post = array();
 
     public $put = array();
+
+    public $delete = array();
 
     public $cookie = array();
 
@@ -31,17 +34,18 @@ class Request
     {
         $this->session = Session::getInstance();
 
-        $this->method = $_SERVER['REQUEST_METHOD'];
+        $this->post = !empty($_POST) ? $_POST : null;
 
-        $this->post = !empty($_POST) ? $_POST :null;
-
-        $this->get = !empty($_GET) ? $_GET :null;
+        $this->get = !empty($_GET) ? $_GET : null;
 
         $this->put = $this->setPut();
 
-        $this->cookie = !empty($_COOKIE) ? $_COOKIE :null;
+        $this->cookie = !empty($_COOKIE) ? $_COOKIE : null;
 
         $this->file = new Upload();
+
+        $this->httpMethodInit();
+
     }
 
     public function input($name, $normalize = null)
@@ -155,16 +159,6 @@ class Request
         return $get;
     }
 
-    public function put($index = null, $normalize = null)
-    {
-        $put = trim(htmlspecialchars(XssSecure::xss_clean($this->put[$index])));
-
-        if ($normalize !== null) {
-            $put = self::filter($put, $normalize);
-        }
-
-        return $put;
-    }
 
     public function setPut()
     {
@@ -202,6 +196,7 @@ class Request
     {
         return $this->file;
     }
+
     /**
      * @param $name
      * @param string $value
@@ -299,9 +294,53 @@ class Request
         return strtoupper($this->method);
     }
 
+    /**
+     * @param $httpMethod
+     */
     public function setMethod($httpMethod)
     {
         $this->method = $httpMethod;
+    }
+
+    /**
+     *  за PUT PATCH DELETE
+     * методи които не се поддържат от браузъра се използва:
+     * <input type="hidden" name="_method" value="DELETE">
+     */
+    private function httpMethodInit()
+    {
+        if ($this->post('_method')) {
+
+            $this->method = strtoupper($this->post('_method'));
+
+        } else {
+
+            $this->method = $_SERVER['REQUEST_METHOD'];
+
+        }
+
+    }
+
+    /**
+     * за PUT PATCH DELETE
+     * @param $name
+     * @param $arguments
+     * @return mixed
+     */
+    public function __call($name, $arguments)
+    {
+        $_method = strtolower($this->method());
+
+        if ($_method != 'get') {
+            if ($_method == $name) {
+                return $this->post($arguments[0], $arguments[1]);
+
+            } else {
+
+                throw new \BadMethodCallException ('No httpMethod found', 501);
+            }
+        }
+
     }
 
     /**

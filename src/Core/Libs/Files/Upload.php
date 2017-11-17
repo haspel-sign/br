@@ -353,6 +353,10 @@ class Upload
         return $this->files[$name];
     }
 
+    /**
+     * @param $file
+     * @return mixed
+     */
     public function getFile($file)
     {
         return $this->files[$file];

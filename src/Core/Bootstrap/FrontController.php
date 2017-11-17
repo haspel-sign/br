@@ -71,7 +71,7 @@ class FrontController
         // -- връща първите 2 сегмента от масива на URL като стринг -> "route/route1" --
         $__route = rtrim(implode(array_slice($segments_from_uri, 0, 2), '/'), '/');
 
-        // аргументите на методите = масив;
+        // параметрите на методите = масив;
         $this->params_from_uri = array();
 
         if (!$__route) {

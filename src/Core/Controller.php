@@ -7,7 +7,6 @@ defined( 'APPLICATION_DIR' ) OR exit( 'No direct Accesss here !' );
 use Core\Libs\Url;
 use Core\Libs\View;
 use Core\Libs\Request;
-use Core\Libs\Session;
 use Core\Libs\Database\MySqlDBQuery;
 
 class Controller
