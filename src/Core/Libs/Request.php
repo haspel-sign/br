@@ -159,6 +159,16 @@ class Request
         return $get;
     }
 
+    public function put($index = null, $normalize = null)
+    {
+        $put = trim(htmlspecialchars(XssSecure::xss_clean($this->put[$index])));
+
+        if ($normalize !== null) {
+            $put = self::filter($put, $normalize);
+        }
+
+        return $put;
+    }
 
     public function setPut()
     {
@@ -329,17 +339,8 @@ class Request
      */
     public function __call($name, $arguments)
     {
-        $_method = strtolower($this->method());
 
-        if ($_method != 'get') {
-            if ($_method == $name) {
-                return $this->post($arguments[0], $arguments[1]);
-
-            } else {
-
-                throw new \BadMethodCallException ('No httpMethod found', 501);
-            }
-        }
+        return $this->post($arguments[0], $arguments[1]);
 
     }
 
