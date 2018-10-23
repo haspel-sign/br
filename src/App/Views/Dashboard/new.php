@@ -263,16 +263,19 @@ if (empty($type)) {
         codeSnippet_theme: 'Monokai',
         language: 'bg',
         height: 200,
-        filebrowserBrowseUrl: 'http://booking-room.dev/Filemanager/index.html',
+//        filebrowserBrowseUrl: 'http://booking-room.manu/Filemanager/index.html',
         toolbarGroups: [
             {name: 'styles', groups: ['styles']},
             {name: 'colors', groups: ['colors']},
             {name: 'links'},
+            {name:'insert', groups:['insert']},
             {name: 'document', groups: ['mode', 'document', 'doctools']},
             {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']},
-            {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+            {name: 'basicstyles', groups: ['basicstyles', 'cleanup']}
 
         ],
+//        allowedContent: 'img[alt, src]{width,height,float}'
+
         // Remove the redundant buttons from toolbar groups defined above.
         removeButtons: 'Save,NewPage,Print,Templates,Cut,Copy,' +
         'Paste,PasteText,PasteFromWord,Undo,Redo,Find,Replace,' +

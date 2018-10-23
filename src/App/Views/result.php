@@ -321,7 +321,7 @@ $lang = $str[0];
                 });
 
                 function displayAdded() {
-                    $.get("<?php echo site_url('display_added'); ?>", function (data) {
+                    $.get("<?php echo site_url('display_booked_rooms'); ?>", function (data) {
                         $('#displayAdded').html(data).fadeIn(1000);
                     });
                 }

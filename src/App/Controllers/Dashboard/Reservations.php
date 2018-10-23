@@ -145,7 +145,6 @@ class Reservations extends DashboardMainController
     /**
      * @param Request $request
      * @param Validator $validator
-     * @param FindRooms $findRooms
      */
     public function reservationEditDate(Request $request, Validator $validator)
     {

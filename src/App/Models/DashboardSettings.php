@@ -17,7 +17,9 @@ class DashboardSettings extends Model
 
     public function fetch_profile()
     {
-        $data = $this->table('tbl_settings')->where('settings_name', '=', 'basic')->get(\PDO::FETCH_ASSOC);
+        $data = $this->table('tbl_settings')
+            ->where('settings_name', '=', 'basic')
+            ->get(\PDO::FETCH_ASSOC);
 
         $_result =  unserialize($data[0]['settings_value']);
 
@@ -30,14 +32,15 @@ class DashboardSettings extends Model
 
     public function fetch_basic()
     {
-        $data = $this->table('tbl_settings')->where('settings_name', '=', 'basic')->get(\PDO::FETCH_ASSOC);
+        $data = $this->table('tbl_settings')
+            ->where('settings_name', '=', 'basic')
+            ->get(\PDO::FETCH_ASSOC);
 
         $_result =  unserialize($data[0]['settings_value']);
 
         foreach($_result as $k=>$v){
             $result[$k] = html_entity_decode($v);
         }
-
         return $result;
     }
 }
